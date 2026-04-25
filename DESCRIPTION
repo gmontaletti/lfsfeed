@@ -1,0 +1,32 @@
+Package: lfsfeed
+Title: Monitor Eurostat Statistics-Update RSS for Labour Force Survey Bulk Files
+Version: 0.1.0
+Authors@R:
+    person("Eurostat LFS Feed", "Author", role = c("aut", "cre"),
+           email = "noreply@example.org")
+Description: Polls the Eurostat dissemination 'statistics-update' RSS feed,
+    filters items for Labour Force Survey ('LFS') datasets, and downloads
+    the corresponding bulk TSV ('.tsv.gz') files via the Eurostat SDMX 2.1
+    bulk endpoint. Maintains a small per-cache state file so subsequent
+    runs only fetch datasets whose pubDate is newer than the last seen
+    timestamp, and returns a manifest tibble describing every attempted
+    download.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: R (>= 4.1)
+Imports:
+    xml2,
+    httr2 (>= 1.0.0),
+    tibble,
+    fs,
+    rlang,
+    jsonlite
+Suggests:
+    httptest2,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
+URL: https://github.com/example/lfsfeed
+BugReports: https://github.com/example/lfsfeed/issues

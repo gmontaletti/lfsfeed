@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Eurostat - Updates of statistics</title>
+    <link>https://ec.europa.eu/eurostat/</link>
+    <description>Latest updates</description>
+    <language>en</language>
+    <pubDate>2026-04-25 11:03:48</pubDate>
+    <item>
+      <title>LFSI_JHH_A - "Dataset: updated data"</title>
+      <category>UPDATED_DATASET_DATA</category>
+      <pubDate>2026-04-24 23:00:00.0</pubDate>
+      <link>https://ec.europa.eu/eurostat/databrowser/product/page/LFSI_JHH_A</link>
+      <description>LFS - jobless households (annual)</description>
+    </item>
+    <item>
+      <title>LFST_HHACEDAY - "Dataset: updated data"</title>
+      <category>UPDATED_DATASET_DATA</category>
+      <pubDate>2026-04-22 23:00:00.0</pubDate>
+      <link>https://ec.europa.eu/eurostat/databrowser/product/page/LFST_HHACEDAY</link>
+      <description>Households by activity status of adults</description>
+    </item>
+    <item>
+      <title>EI_ISEN_M - "Dataset: updated data"</title>
+      <category>UPDATED_DATASET_DATA</category>
+      <pubDate>2026-04-24 23:00:00.0</pubDate>
+      <link>https://ec.europa.eu/eurostat/databrowser/product/page/EI_ISEN_M</link>
+      <description>Energy - monthly data</description>
+    </item>
+  </channel>
+</rss>

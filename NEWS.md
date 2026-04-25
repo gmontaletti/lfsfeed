@@ -10,3 +10,6 @@
 * `lfs_state_path()` exposes the default state-file location.
 * `read_lfs_file()` is a small base-R convenience for loading a
   downloaded `.tsv.gz` into a tibble.
+* Ships `inst/scripts/update-lfs.R`, a cron entry point that wraps
+  `download_lfs_updates()` with timestamped logging, environment-variable
+  configuration, and structured exit codes.

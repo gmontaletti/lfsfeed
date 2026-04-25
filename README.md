@@ -44,6 +44,39 @@ call `eurostat::get_eurostat()` with the dataset code.
 devtools::install()
 ```
 
+## Scheduled updates with cron
+
+The package ships a small Rscript at `inst/scripts/update-lfs.R` that
+calls `download_lfs_updates()`, logs the outcome, and returns sensible
+exit codes for monitoring tools. After installing the package, find it
+with `system.file("scripts/update-lfs.R", package = "lfsfeed")`.
+
+Configure with environment variables:
+
+| variable             | default                                  |
+|----------------------|------------------------------------------|
+| `LFSFEED_DEST_DIR`   | `~/eurostat/lfs`                         |
+| `LFSFEED_STATE_PATH` | `${LFSFEED_DEST_DIR}/state.json`         |
+| `LFSFEED_LOG_FILE`   | `${LFSFEED_DEST_DIR}/update.log`         |
+
+Exit codes: `0` success, `1` every download failed, `2` the package is
+not installed in `R_LIBS_USER`, `3` an unrecoverable error occurred
+(feed unreachable, malformed XML, unwritable destination).
+
+### Example crontab line
+
+Once daily at 02:30 local time, with `flock(1)` to prevent overlap:
+
+```cron
+30 2 * * * R_LIBS_USER=$HOME/Rlibs LFSFEED_DEST_DIR=$HOME/eurostat/lfs \
+  /usr/bin/flock -n /tmp/lfsfeed.lock \
+  /usr/bin/Rscript -e "source(system.file('scripts/update-lfs.R', package='lfsfeed'))"
+```
+
+Eurostat publishes most updates at ~23:00 UTC, so a once-daily run
+shortly after midnight UTC is enough; tighten to hourly only if you
+need lower latency.
+
 ## Development
 
 ```r

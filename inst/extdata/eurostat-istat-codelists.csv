@@ -1,0 +1,9 @@
+# Eurostat <-> ISTAT codelist mapping for lfsfeed.
+# Override at runtime via LFSFEED_MAPPING_CSV.
+# Schema: eurostat_codelist_id (uppercase), istat_codelist_id (uppercase),
+# join_strategy ("identity" only in v0.2.0), notes (free text).
+eurostat_codelist_id,istat_codelist_id,join_strategy,notes
+GEO,CL_ITTER107,identity,"NUTS regions; Italian codes only - non-IT geo codes fall back to label_en"
+SEX,CL_SEXISTAT1,identity,"Verify ISTAT codelist id at first run; name may differ"
+FREQ,CL_FREQ,identity,"Annual/quarterly/monthly enumerations"
+AGE,CL_ETA1,identity,"Age groups; first run may yield 0 matches if Eurostat and ISTAT use different code ids"

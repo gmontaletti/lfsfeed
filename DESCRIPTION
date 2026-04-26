@@ -1,6 +1,6 @@
 Package: lfsfeed
 Title: Monitor Eurostat Statistics-Update RSS for Labour Force Survey Bulk Files
-Version: 0.1.0
+Version: 0.2.0
 Authors@R:
     person("Eurostat LFS Feed", "Author", role = c("aut", "cre"),
            email = "noreply@example.org")
@@ -25,8 +25,10 @@ Imports:
     jsonlite
 Suggests:
     httptest2,
+    istatlab,
     testthat (>= 3.0.0),
     withr
+Remotes: github::gmontaletti/istatlab
 Config/testthat/edition: 3
 URL: https://github.com/example/lfsfeed
 BugReports: https://github.com/example/lfsfeed/issues

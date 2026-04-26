@@ -48,6 +48,29 @@ bulk_url <- function(code) {
   )
 }
 
+#' Build the SDMX 2.1 dataflow-with-descendants URL for a dataset code.
+#'
+#' Returns title + DSD + every referenced codelist in one ~3 MB response.
+#' The Eurostat artefact namespace requires the dataset code to be
+#' uppercase; we accept either case from callers.
+#'
+#' @noRd
+dataflow_url <- function(code) {
+  paste0(
+    "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/dataflow/ESTAT/",
+    toupper(code),
+    "/1.0?references=descendants"
+  )
+}
+
+#' Schema version of the cached metadata RDS files.
+#'
+#' Bumped whenever the on-disk shape changes. Mismatched files are
+#' treated as cache misses by `get_lfs_metadata()`.
+#'
+#' @noRd
+META_SCHEMA_VERSION <- 1L
+
 #' @noRd
 default_user_agent <- function() {
   "lfsfeed/0.1.0 (+https://github.com/example/lfsfeed)"

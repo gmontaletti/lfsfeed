@@ -2,5 +2,6 @@
 
 export(download_lfs_updates)
 export(fetch_lfs_feed)
+export(get_lfs_metadata)
 export(lfs_state_path)
 export(read_lfs_file)
